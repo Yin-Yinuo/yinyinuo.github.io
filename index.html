@@ -6,6 +6,39 @@
   <title>中药药渣高值化利用智能推荐系统</title>
   <link rel="icon" href="/favicon.png" type="image/png">
   <style>
+/* 🔥 下拉框遮挡终极暴力修复 - 无视所有样式，强制置顶 */
+/* 1. 给下拉列表本身，直接拉到宇宙最高层级 */
+*[id*="Suggestions"], .combo-list, .combo-dropdown {
+  z-index: 2147483647 !important; /* 浏览器支持的最大z-index，绝对置顶 */
+  position: absolute !important;
+  overflow: visible !important;
+  background: #fff !important;
+}
+
+/* 2. 给下拉框父元素，强制取消裁剪+提层级 */
+.combo-box {
+  position: relative !important;
+  z-index: 2147483647 !important;
+  overflow: visible !important;
+}
+
+/* 3. 给整个参数输入面板，彻底锁死最高层 */
+.form-panel, .param-input-panel {
+  position: relative !important;
+  z-index: 999999 !important;
+  overflow: visible !important;
+}
+
+/* 4. 彻底干掉fade-in动画的层叠上下文干扰（核心！） */
+.fade-in {
+  transform: none !important; /* 删掉位移，彻底消除新层叠上下文 */
+  opacity: 0;
+  transition: opacity 0.6s ease-out !important;
+}
+.fade-in.active {
+  opacity: 1 !important;
+  transform: none !important;
+}
   /* 1. 给下拉列表的容器提最高层级 */
   .combo-list {
     z-index: 99999 !important;
