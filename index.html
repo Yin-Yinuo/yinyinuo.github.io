@@ -39,6 +39,29 @@
   opacity: 1 !important;
   transform: none !important;
 }
+/* 🔥 下拉菜单背景高度不足修复 */
+.combo-list, .combo-suggestions, [id*="Suggestions"] {
+  /* 强制给下拉列表加完整白色背景 */
+  background: #ffffff !important;
+  /* 给足够的内边距，让内容不贴边 */
+  padding: 8px 0 !important;
+  /* 给最大高度，防止无限拉长，同时保证滚动正常 */
+  max-height: 400px !important;
+  /* 强制显示滚动条，避免内容溢出 */
+  overflow-y: auto !important;
+  /* 给阴影，让下拉框和背景彻底区分开 */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+  /* 圆角，和你原来的设计统一 */
+  border-radius: 8px !important;
+  /* 强制z-index，确保背景在最顶层 */
+  z-index: 2147483647 !important;
+}
+
+/* 给下拉列表的每一项，加完整背景，防止透明 */
+.combo-list-item, .combo-suggestions > div {
+  background: transparent !important;
+  padding: 10px 16px !important;
+}
   /* 1. 给下拉列表的容器提最高层级 */
   .combo-list {
     z-index: 99999 !important;
