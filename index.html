@@ -6,6 +6,24 @@
   <title>中药药渣高值化利用智能推荐系统</title>
   <link rel="icon" href="/favicon.png" type="image/png">
   <style>
+  /* 1. 给下拉列表的容器提最高层级 */
+  .combo-list {
+    z-index: 99999 !important;
+    position: absolute !important;
+  }
+
+  /* 2. 给父元素combo-box加相对定位，让下拉列表锚定正确 */
+  .combo-box {
+    position: relative !important;
+    z-index: 99999 !important;
+    overflow: visible !important;
+  }
+
+  /* 3. 给整个form-panel提层级，防止被后面模块盖住 */
+  .form-panel {
+    position: relative !important;
+    z-index: 9999 !important;
+  }
   .combo-box {
     z-index: 9999 !important;
     position: relative;
